@@ -1,5 +1,4 @@
-const API_BASE = process.env.API_BASE || 'http://localhost:8084/api';
-console.log(API_BASE)
+const API_BASE = 'http://localhost:8084/api';
 let allVocabulary = [];
 let currentPracticeWord = null;
 
