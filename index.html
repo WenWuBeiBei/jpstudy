@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日语词汇学习</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="vocabularyPage" class="page active">
+            <h1>单词本</h1>
+            <div class="loading">加载中...</div>
+            <div class="vocabulary-list" id="vocabularyList"></div>
+        </div>
+
+        <div id="mistakesPage" class="page">
+            <h1>错题本</h1>
+            <div class="loading">加载中...</div>
+            <div class="vocabulary-list" id="mistakesList"></div>
+        </div>
+
+        <!-- 新增练习页面 -->
+        <div id="practicePage" class="page">
+            <h1>练习模式</h1>
+            <div class="loading">加载中...</div>
+            <div id="practiceContainer">
+                <div class="practice-card" id="practiceCard">
+                    <div class="practice-word" id="practiceWord"></div>
+                    <div class="pronunciation" id="practicePronunciation"></div>
+                    <div class="romaji" id="practiceRomaji"></div>
+                </div>
+                <div class="practice-actions">
+                    <button class="action-btn add-mistake" id="addToMistakesBtn">
+                        <i class="fas fa-plus-circle"></i> 添加到错题本
+                    </button>
+                    <button class="next-btn" id="nextBtn">下一题</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-page="vocabularyPage">
+            <i class="fas fa-book"></i>
+            <span>单词本</span>
+        </button>
+        <button class="nav-btn" data-page="mistakesPage">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>错题本</span>
+        </button>
+        <button class="nav-btn" data-page="practicePage">
+            <i class="fas fa-dumbbell"></i>
+            <span>练习</span>
+        </button>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
