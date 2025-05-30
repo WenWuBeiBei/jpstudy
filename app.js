@@ -1,4 +1,4 @@
-const API_BASE = 'https://wangyun5583.com/study/api';
+const API_BASE = 'http://localhost:8084/api';
 let allVocabulary = [];
 let currentPracticeWord = null;
 
@@ -37,7 +37,56 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('nextBtn').addEventListener('click', nextPracticeWord);
     document.getElementById('addToMistakesBtn').addEventListener('click', addCurrentToMistakes);
     document.getElementById('practiceCard').addEventListener('click', togglePracticeDetails);
+
+    // 添加上传功能
+    const uploadBtn = document.getElementById('uploadBtn');
+    const fileInput = document.getElementById('fileInput');
+
+    uploadBtn.addEventListener('click', function() {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            const file = this.files[0];
+            uploadVocabularyFile(file);
+        }
+    });
 });
+
+// 上传单词本文件
+function uploadVocabularyFile(file) {
+    if (!file || file.name !== 'jp.txt') {
+        alert('请上传名为jp.txt的文件');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const loading = document.querySelector('#vocabularyPage .loading');
+    loading.style.display = 'block';
+    loading.textContent = '正在上传...';
+
+    fetch(`${API_BASE}/upload-vocabulary`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('上传失败');
+        return response.json();
+    })
+    .then(data => {
+        loading.style.display = 'none';
+        alert(data.message);
+        loadVocabulary(); // 重新加载单词本
+    })
+    .catch(error => {
+        console.error('上传失败:', error);
+        loading.style.display = 'none';
+        alert('上传失败，请重试');
+    });
+}
 
 function loadVocabulary() {
     const container = document.getElementById('vocabularyList');

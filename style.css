@@ -268,3 +268,31 @@ h1 {
     min-width: 220px;
     white-space: nowrap;
 }
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.upload-btn:hover {
+    background-color: #2980b9;
+}
+
+.upload-btn i {
+    font-size: 1.2rem;
+}

@@ -11,6 +11,12 @@
     <div class="container">
         <div id="vocabularyPage" class="page active">
             <h1>单词本</h1>
+            <div class="upload-container">
+                <button id="uploadBtn" class="upload-btn">
+                    <i class="fas fa-upload"></i> 上传单词本
+                </button>
+                <input type="file" id="fileInput" accept=".txt" style="display: none;">
+            </div>
             <div class="loading">加载中...</div>
             <div class="vocabulary-list" id="vocabularyList"></div>
         </div>
