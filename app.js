@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8084/api';
+const API_BASE = 'https://wangyun5583.com/study/api';
 let allVocabulary = [];
 let currentPracticeWord = null;
 
